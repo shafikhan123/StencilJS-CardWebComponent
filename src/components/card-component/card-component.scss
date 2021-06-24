@@ -1,0 +1,87 @@
+/*------------------------------------*\
+    # CARD-COMPONENT
+\*------------------------------------*/
+
+/**
+ * @prop --card-wdth: the `width` of card. Defaults to 100%
+  * @prop --card-max-wdth: the `max-width` of card. Defaults to 330px
+ * @prop --card-box-shadow: the box shadow of card. Defaults to 0 0 10px 6px #cac7c7
+ * @prop --card-border-radius: the border-radius of card. Defaults to 10px
+ * @prop --card-body-content-padding: The padding for the card-body-content. Defaults to 20px
+ * @prop --card-sub-title-color: The color for the card sub title. Defaults to #534f4f
+ * @prop --card-sub-title-font-size: The `font-size` for the card sub title . Defaults to 14px
+ * @prop --card-sub-title-text-transform: The `text-transform` property for the card sub title. Defaults to uppercase
+ * @prop --card-sub-title-font-weight: The `font-weight` for the card sub title. Defaults to bold
+ * @prop --card-sub-title-padding: The padding for the card sub title. Defaults to 0 0 10px 0
+ * @prop --card-title-color: The color for the card title. Defaults to #000000
+ * @prop --card-title-font-size: The `font-size` for the card title. Defaults to 30px
+ * @prop --card-title-text-transform: The `text-transform` property for the card title. Defaults to capitalize
+ * @prop --card-title-font-weight: The `font-weight` for the card title. Defaults to bold
+ * @prop --card-title-padding: The card title padding. Defaults to 0 0 10px 0
+ * @prop --card-body-text-color: The color for the card body text. Defaults to #6c6868
+ * @prop --card-body-font-size: The `font-size` for the card body text. Defaults to 16px
+ 
+ */
+
+:host {
+  font-family: sans-serif;
+  --card-body-text-color: #6c6868;
+  --card-body-font-size: 16px;
+  --card-wdth: 100%;
+  --card-max-wdth: 330px;
+  --card-box-shadow: 0 0 10px 6px #cac7c7;
+  --card-border-radius: 10px;
+  --card-body-content-padding: 20px;
+  --card-sub-title-color: #6c6868;
+  --card-sub-title-font-size: 13px;
+  --card-sub-title-font-weight: bold;
+  --card-sub-title-text-transform: uppercase;
+  --card-sub-title-padding: 0 0 10px 0;
+  --card-title-color: #000000;
+  --card-title-font-size: 30px;
+  --card-title-font-weight: bold;
+  --card-title-text-transform: capitalize;
+  --card-title-padding: 0 0 20px 0;
+
+  .card__wrapper {
+    display: block;
+    overflow: hidden;
+    max-width: var(--card-max-wdth);
+    width: var(--card-wdth);
+    box-shadow: var(--card-box-shadow);
+    border-radius: var(--card-border-radius);
+    .card__header {
+      ::slotted([slot='header']) {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .card-body__content {
+      padding: var(--card-body-content-padding);
+      .card__subtitle {
+        ::slotted([slot='subtitle']) {
+          color: var(--card-sub-title-color);
+          font-size: var(--card-sub-title-font-size);
+          font-weight: var(--card-sub-title-font-weight);
+          padding: var(--card-sub-title-padding);
+          text-transform: var(--card-sub-title-text-transform);
+        }
+      }
+      .card__title {
+        ::slotted([slot='title']) {
+          color: var(--card-title-color);
+          font-size: var(--card-title-font-size);
+          padding: var(--card-title-padding);
+          font-weight: var(--card-title-font-weight);
+          text-transform: var(--card-title-text-transform);
+        }
+      }
+      .card__body {
+        ::slotted([slot='body']) {
+          font-size: var(--card-body-font-size);
+          color: var(--card-body-text-color);
+        }
+      }
+    }
+  }
+}
